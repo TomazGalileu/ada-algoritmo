@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trilha 1: Variáveis e E/S - ADA Unichristus</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+    
+    <style>
+        /* Pequenos ajustes visuais */
+        header { padding-bottom: 20px; border-bottom: 1px solid #333; margin-bottom: 30px; }
+        .back-link { text-decoration: none; font-weight: bold; }
+        .comment { color: #888; font-style: italic; }
+        details { background-color: #1f2d3d; padding: 15px; border-radius: 5px; margin-bottom: 10px; }
+        summary { cursor: pointer; font-weight: bold; color: #ffca28; }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="back-link">← Voltar para o Início</a></li>
+                </ul>
+                <ul>
+                    <li><strong>Algoritmos e Programação I</strong></li>
+                </ul>
+            </nav>
+            <h1>Trilha 1: Variáveis, Entrada e Saída</h1>
+        </header>
+
+        <section id="objetivos">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <ul>
+                <li>Entender o conceito de variáveis e alocação de memória.</li>
+                <li>Diferenciar os tipos primitivos de dados (<code>int</code>, <code>float</code>, <code>char</code>).</li>
+                <li>Utilizar funções de entrada (<code>scanf</code>) e saída (<code>printf</code>).</li>
+                <li>Escrever um programa sequencial simples em C.</li>
+            </ul>
+        </section>
+        <hr>
+
+        <section id="resumo">
+            <h2>⚡ Resumo Rápido</h2>
+            <p>Para programar, precisamos guardar dados na memória. Em C, declaramos o tipo antes do nome.</p>
+            
+            <figure>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>O que guarda?</th>
+                            <th>Máscara de Formatação</th>
+                            <th>Exemplo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>int</code></td>
+                            <td>Números inteiros</td>
+                            <td><code>%d</code></td>
+                            <td>10, -5, 2025</td>
+                        </tr>
+                        <tr>
+                            <td><code>float</code></td>
+                            <td>Números reais (com vírgula)</td>
+                            <td><code>%f</code></td>
+                            <td>3.14, -10.5, 7.0</td>
+                        </tr>
+                        <tr>
+                            <td><code>char</code></td>
+                            <td>Um único caractere</td>
+                            <td><code>%c</code></td>
+                            <td>'A', 'z', '@'</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+
+            <blockquote>
+                <strong>Dica de Ouro:</strong> <br>
+                Use <code>printf("Texto");</code> para mostrar dados na tela.<br>
+                Use <code>scanf("%d", &variavel);</code> para ler dados do teclado. (Não esqueça o <strong>&</strong> no scanf!)
+            </blockquote>
+        </section>
+        <hr>
+
+        <section id="exemplo">
+            <h2>💻 Exemplo Comentado</h2>
+            <p>Vamos criar um programa que calcula o <strong>IMC (Índice de Massa Corporal)</strong> simples.</p>
+            
+            <pre><code class="language-c">
+#include &lt;stdio.h&gt; // Biblioteca necessária para printf e scanf
+#include &lt;locale.h&gt; // Biblioteca para acentos (opcional)
+
+int main() {
+    // 1. Declaração de Variáveis
+    // Precisamos de peso (real), altura (real) e uma para o resultado.
+    float peso;
+    float altura;
+    float imc;
+
+    // Configura o idioma para aceitar acentos (opcional)
+    setlocale(LC_ALL, "Portuguese");
+
+    // 2. Entrada de Dados
+    printf("Digite seu peso (ex: 70.5): ");
+    // Lendo um float. Note o & antes da variável peso
+    scanf("%f", &peso); 
+
+    printf("Digite sua altura (ex: 1.75): ");
+    scanf("%f", &altura);
+
+    // 3. Processamento (Cálculo)
+    // Fórmula: peso dividido por altura ao quadrado
+    imc = peso / (altura * altura);
+
+    // 4. Saída de Dados
+    // %.2f significa: mostre um float com apenas 2 casas decimais
+    printf("\n--- RESULTADO ---\n");
+    printf("Para peso %.2f e altura %.2f\n", peso, altura);
+    printf("Seu IMC é: %.2f\n", imc);
+
+    return 0; // Indica que o programa terminou com sucesso
+}
+            </code></pre>
+        </section>
+        <hr>
+
+        <section id="exercicios">
+            <h2>📝 Lista de Exercícios</h2>
+            <p>Pratique para fixar. Tente resolver antes de olhar o gabarito.</p>
+
+            <article>
+                <h4>1. Teoria das Variáveis</h4>
+                <p>Qual a máscara de formatação correta para ler um número inteiro e um caractere, respectivamente?</p>
+                <details>
+                    <summary>Ver Gabarito</summary>
+                    <p><strong>Resposta:</strong> <code>%d</code> e <code>%c</code>.</p>
+                </details>
+            </article>
+
+            <article>
+                <h4>2. Encontre o Erro</h4>
+                <p>O código abaixo deveria ler um número inteiro, mas está dando erro ou fechando sozinho. Qual o erro?</p>
+                <pre><code class="language-c">
+int idade;
+printf("Digite sua idade: ");
+scanf("%f", idade); // Linha com problema
+                </code></pre>
+                <details>
+                    <summary>Ver Gabarito</summary>
+                    <p>Existem dois erros nesta linha:</p>
+                    <ol>
+                        <li>O tipo da variável é <code>int</code>, mas a máscara usada foi <code>%f</code> (que é para float). O correto seria <code>%d</code>.</li>
+                        <li>Faltou o <strong>&</strong> comercial antes da variável <code>idade</code> no scanf.</li>
+                    </ol>
+                    <p><strong>Correção:</strong> <code>scanf("%d", &idade);</code></p>
+                </details>
+            </article>
+
+            <article>
+                <h4>3. Conversor de Temperatura</h4>
+                <p>Crie um algoritmo que leia uma temperatura em graus Celsius e a converta para Fahrenheit. <br>
+                <strong>Fórmula:</strong> F = (C * 1.8) + 32</p>
+                <details>
+                    <summary>Ver Código Resposta</summary>
+<pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+int main() {
+    float celsius, fahrenheit;
+
+    printf("Digite a temperatura em Celsius: ");
+    scanf("%f", &celsius);
+
+    fahrenheit = (celsius * 1.8) + 32;
+
+    printf("A temperatura em Fahrenheit é: %.1f", fahrenheit);
+
+    return 0;
+}
+</code></pre>
+                </details>
+            </article>
+
+            <article>
+                <h4>4. Média de Notas</h4>
+                <p>Escreva um programa que leia 3 notas de um aluno (tipo float) e imprima a média aritmética final.</p>
+                <details>
+                    <summary>Ver Código Resposta</summary>
+<pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+int main() {
+    float n1, n2, n3, media;
+
+    printf("Digite as 3 notas: ");
+    scanf("%f %f %f", &n1, &n2, &n3);
+
+    media = (n1 + n2 + n3) / 3;
+
+    printf("A média final é: %.2f", media);
+
+    return 0;
+}
+</code></pre>
+                </details>
+            </article>
+
+        </section>
+
+        <footer>
+            <small>Ambiente Digital de Aprendizagem - Algoritmos I - 2025.2</small>
+        </footer>
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+</body>
+</html>
