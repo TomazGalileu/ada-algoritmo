@@ -1,0 +1,39 @@
+/* style.css - Estilos globais do ADA */
+
+/* Ajustes no Cabeçalho */
+header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 30px;
+}
+
+/* Link de voltar */
+.back-link {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Áreas de Código e Comentários */
+.comment {
+    color: #888;
+    font-style: italic;
+}
+
+/* Estilo do Gabarito (Details/Summary) */
+details {
+    background-color: #1f2d3d; /* Fundo escuro para destacar */
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #333;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffca28; /* Amarelo destaque */
+}
+
+summary:hover {
+    color: #ffd54f;
+}
