@@ -33,9 +33,128 @@
                 <li>Entender o conceito de variáveis e alocação de memória.</li>
                 <li>Diferenciar os tipos primitivos de dados (<code>int</code>, <code>float</code>, <code>char</code>).</li>
                 <li>Utilizar funções de entrada (<code>scanf</code>) e saída (<code>printf</code>).</li>
+                <li>Escrever um programa sequencial simples em C.</li>
             </ul>
         </section>
-        
+        <hr>
+
+        <section id="resumo">
+            <h2>⚡ Resumo Rápido</h2>
+            <p>Para programar, precisamos guardar dados na memória. Em C, declaramos o tipo antes do nome.</p>
+            
+            <figure>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>O que guarda?</th>
+                            <th>Máscara</th>
+                            <th>Exemplo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>int</code></td>
+                            <td>Inteiros</td>
+                            <td><code>%d</code></td>
+                            <td>10, -5</td>
+                        </tr>
+                        <tr>
+                            <td><code>float</code></td>
+                            <td>Reais (vírgula)</td>
+                            <td><code>%f</code></td>
+                            <td>3.14, -10.5</td>
+                        </tr>
+                        <tr>
+                            <td><code>char</code></td>
+                            <td>Caractere único</td>
+                            <td><code>%c</code></td>
+                            <td>'A', '@'</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+
+            <blockquote>
+                <strong>Dica:</strong> Use <code>printf</code> para escrever na tela e <code>scanf</code> para ler do teclado.
+                No <code>scanf</code>, lembre-se do <strong>&</strong> antes da variável (ex: <code>&idade</code>).
+            </blockquote>
+        </section>
+        <hr>
+
+        <section id="exemplo">
+            <h2>💻 Exemplo Comentado</h2>
+            <p>Calculando o <strong>IMC</strong> simples.</p>
+            
+            <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+#include &lt;locale.h&gt;
+
+int main() {
+    float peso, altura, imc;
+
+    setlocale(LC_ALL, "Portuguese"); // Acentos
+
+    // Entrada
+    printf("Digite seu peso (ex: 70.5): ");
+    scanf("%f", &peso); 
+
+    printf("Digite sua altura (ex: 1.75): ");
+    scanf("%f", &altura);
+
+    // Processamento
+    imc = peso / (altura * altura);
+
+    // Saída (%.2f limita a 2 casas decimais)
+    printf("\nSeu IMC é: %.2f\n", imc);
+
+    return 0;
+}
+            </code></pre>
+        </section>
+        <hr>
+
+        <section id="exercicios">
+            <h2>📝 Lista de Exercícios</h2>
+            
+            <article>
+                <h4>1. Teoria das Variáveis</h4>
+                <p>Qual a máscara correta para ler um número inteiro (int)?</p>
+                <details>
+                    <summary>Ver Gabarito</summary>
+                    <p><strong>Resposta:</strong> <code>%d</code> (ou %i).</p>
+                </details>
+            </article>
+
+            <article>
+                <h4>2. Encontre o Erro</h4>
+                <p>O que está errado em: <code>scanf("%d", idade);</code> ?</p>
+                <details>
+                    <summary>Ver Gabarito</summary>
+                    <p>Faltou o "E comercial" (&). O correto é <code>scanf("%d", &idade);</code></p>
+                </details>
+            </article>
+
+            <article>
+                <h4>3. Conversor de Temperatura</h4>
+                <p>Crie um algoritmo que leia Celsius e converta para Fahrenheit (F = C * 1.8 + 32).</p>
+                <details>
+                    <summary>Ver Código Resposta</summary>
+<pre><code class="language-c">
+#include &lt;stdio.h&gt;
+int main() {
+    float C, F;
+    printf("Digite graus Celsius: ");
+    scanf("%f", &C);
+    F = (C * 1.8) + 32;
+    printf("Fahrenheit: %.1f", F);
+    return 0;
+}
+</code></pre>
+                </details>
+            </article>
+        </section>
+
         <footer>
             <small>Ambiente Digital de Aprendizagem - Algoritmos I - 2025.2</small>
         </footer>
