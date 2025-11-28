@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trilha 6: Matrizes e Structs - ADA Unichristus</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+        
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="back-link">← Voltar para o Início</a></li>
+                </ul>
+                <ul>
+                    <li><strong>Algoritmos e Programação I</strong></li>
+                </ul>
+            </nav>
+            <h1>Trilha 6: Matrizes e Structs</h1>
+        </header>
+
+        <section id="objetivos">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <ul>
+                <li>Manipular dados em duas dimensões (linhas e colunas) usando <strong>Matrizes</strong>.</li>
+                <li>Utilizar laços aninhados (um <code>for</code> dentro de outro) para percorrer matrizes.</li>
+                <li>Criar novos tipos de dados compostos utilizando <strong>Structs</strong>.</li>
+            </ul>
+        </section>
+        <hr>
+
+        <section id="resumo-matrizes">
+            <h2>⚡ Resumo: Matrizes</h2>
+            <p>Se um Vetor é uma linha, uma Matriz é uma tabela (planilha). Ela tem Linhas e Colunas.</p>
+            
+            
+            <figure>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sintaxe</th>
+                            <th>Exemplo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>tipo nome[linhas][colunas];</code></td>
+                            <td><code>int mapa[3][3];</code> (Cria um grid 3x3)</td>
+                        </tr>
+                        <tr>
+                            <td><code>nome[L][C] = valor;</code></td>
+                            <td><code>mapa[0][2] = 5;</code> (Linha 0, Coluna 2)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+        </section>
+
+        <section id="exemplo-matriz">
+            <h3>💻 Exemplo 1: Matriz de Identidade</h3>
+            <p>Preenchendo uma matriz 3x3 onde a diagonal principal é 1 e o resto é 0.</p>
+            
+            <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+int main() {
+    int mat[3][3];
+    int lin, col;
+
+    // Dois laços: um para descer as linhas, outro para andar nas colunas
+    for(lin = 0; lin < 3; lin++) {
+        for(col = 0; col < 3; col++) {
+            
+            if(lin == col) {
+                mat[lin][col] = 1; // Diagonal principal
+            } else {
+                mat[lin][col] = 0; // Resto
+            }
+        }
+    }
+
+    // Exibindo a matriz formatada
+    printf("Matriz Gerada:\n");
+    for(lin = 0; lin < 3; lin++) {
+        for(col = 0; col < 3; col++) {
+            printf("%d ", mat[lin][col]);
+        }
+        printf("\n"); // Pula linha após imprimir as colunas
+    }
+    return 0;
+}
+            </code></pre>
+        </section>
+        <hr>
+
+        <section id="resumo-structs">
+            <h2>⚡ Resumo: Structs</h2>
+            <p>Vetores guardam vários dados do <em>mesmo tipo</em>. E se quisermos guardar um Aluno (que tem Nome, Idade e Nota)? Usamos <strong>Struct</strong>.</p>
+            <pre><code class="language-c">
+struct Aluno {
+    char nome[50];
+    int idade;
+    float nota;
+}; // O ponto e vírgula no final é obrigatório!
+            </code></pre>
+        </section>
+
+        <section id="exemplo-struct">
+            <h3>💻 Exemplo 2: Cadastro Simples</h3>
+            <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+// Definindo a "forma" do nosso dado
+struct Pessoa {
+    char nome[50];
+    int idade;
+};
+
+int main() {
+    struct Pessoa p1;
+
+    // Gravando dados (use ponto para acessar os campos)
+    p1.idade = 25;
+    strcpy(p1.nome, "Maria Silva"); // Copiando texto para string
+
+    // Lendo dados
+    printf("Nome: %s\n", p1.nome);
+    printf("Idade: %d", p1.idade);
+
+    return 0;
+}
+            </code></pre>
+        </section>
+        <hr>
+
+        <section id="exercicios">
+            <h2>📝 Lista de Exercícios</h2>
+            
+            <article>
+                <h4>1. Total de Elementos</h4>
+                <p>Quantos números inteiros cabem em uma matriz declarada como <code>int valores[4][5];</code>?</p>
+                <details>
+                    <summary>Ver Gabarito</summary>
+                    <p><strong>Resposta:</strong> 20 elementos (4 linhas vezes 5 colunas).</p>
+                </details>
+            </article>
+
+            <article>
+                <h4>2. Acesso a Struct</h4>
+                <p>Dado <code>struct Carro c;</code> que possui um campo <code>ano</code>, como faço para ler esse valor do teclado?</p>
+                <details>
+                    <summary>Ver Gabarito</summary>
+                    <p><strong>Resposta:</strong> <code>scanf("%d", &c.ano);</code> (Note o ponto acessando o campo).</p>
+                </details>
+            </article>
+
+            <article>
+                <h4>3. Somando uma Matriz</h4>
+                <p>Complete a lógica para somar todos os valores de uma matriz 2x2.</p>
+                <details>
+                    <summary>Ver Código Resposta</summary>
+<pre><code class="language-c">
+// ... declarações ...
+float soma = 0;
+for(i=0; i<2; i++){
+    for(j=0; j<2; j++){
+        soma = soma + matriz[i][j];
+    }
+}
+printf("Total: %f", soma);
+</code></pre>
+                </details>
+            </article>
+
+        </section>
+
+        <footer>
+            <small>Ambiente Digital de Aprendizagem - Algoritmos I - 2025.2</small>
+        </footer>
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+</body>
+</html>
