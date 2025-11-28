@@ -1,143 +1,129 @@
-/* style.css - Tema Clean & Minimalist (Harmônico) */
+/* style.css - Tema Escuro Original (Dark Mode) */
 
+/* Definindo as cores escuras globais */
 :root {
-    --cor-fundo: #fdfdfd;       /* Quase branco */
-    --cor-texto: #333333;       /* Cinza escuro suave */
-    --cor-primaria: #2563eb;    /* Azul médio (não agressivo) */
-    --cor-borda: #e5e7eb;       /* Cinza bem clarinho para divisórias */
-    --cor-destaque-fundo: #f3f4f6; /* Cinza gelo para caixas */
+    --background-color: #11191f; /* Fundo bem escuro (Pico Default) */
+    --text-color: #bbc6ce;       /* Texto cinza claro (confortável) */
+    --h-color: #edf0f3;          /* Títulos em branco */
+    --primary: #1e88e5;          /* Azul para links */
+    --secondary-bg: #1f2d3d;     /* Fundo dos blocos de destaque */
+    --border-color: #2b3b4d;     /* Bordas sutis */
 }
 
-/* Força o tema CLARO mesmo se o computador estiver no modo escuro */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background-color: #ffffff !important;
-        --color: #333333 !important;
-    }
-}
-
+/* Força o corpo da página a ser escuro */
 body {
-    background-color: var(--cor-fundo) !important;
-    color: var(--cor-texto) !important;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--background-color) !important;
+    color: var(--text-color) !important;
 }
 
-/* Container Principal - Removemos a sombra pesada */
+/* Container Principal */
 main.container {
-    background-color: #fff;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding: 40px;
-    border: 1px solid var(--cor-borda); /* Borda fina em vez de sombra */
-    border-radius: 8px;
+    padding-top: 20px;
+    padding-bottom: 40px;
     max-width: 800px;
 }
 
 /* Cabeçalho */
 header {
-    text-align: center;
-    border-bottom: 1px solid var(--cor-borda);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 30px;
     padding-bottom: 20px;
-    margin-bottom: 40px;
 }
 
 header h1 {
-    color: #111; /* Preto suave */
+    color: var(--h-color);
     font-weight: 700;
-    font-size: 2.2rem;
 }
 
-/* Links e Navegação */
+/* Navegação e Links */
 a {
-    color: var(--cor-primaria);
+    color: var(--primary);
     text-decoration: none;
-    font-weight: 500;
+    transition: color 0.2s;
 }
 
 a:hover {
     text-decoration: underline;
-    color: #1d4ed8;
+    color: #64b5f6; /* Azul mais claro ao passar o mouse */
 }
 
 .back-link {
     font-size: 0.9em;
-    color: #666; /* Cinza para não chamar muita atenção */
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     display: inline-block;
-}
-
-.back-link:hover {
-    color: var(--cor-primaria);
 }
 
 /* Títulos das Seções */
-h2 {
-    font-size: 1.5rem;
-    color: #111;
-    margin-top: 40px;
-    border-bottom: 2px solid var(--cor-primaria); /* Sublinhado curto */
-    display: inline-block;
-    padding-bottom: 5px;
+h2, h3, h4 {
+    color: var(--h-color);
+    margin-top: 35px;
+    border-left: 4px solid var(--primary); /* Detalhe azul na esquerda */
+    padding-left: 15px;
 }
 
-/* Tabelas Limpas */
+/* Tabelas (Ajustadas para o escuro) */
 figure table {
-    width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
-    border: 1px solid var(--cor-borda);
+    width: 100%;
+    margin-top: 20px;
+    border: 1px solid var(--border-color);
 }
 
 th {
-    background-color: var(--cor-destaque-fundo);
-    color: #333;
-    font-weight: 600;
-    text-align: left;
+    background-color: var(--secondary-bg);
+    color: #fff;
+    border-bottom: 2px solid var(--border-color);
 }
 
-td, th {
-    padding: 12px;
-    border-bottom: 1px solid var(--cor-borda);
+td {
+    border-bottom: 1px solid var(--border-color);
 }
 
-/* Gabarito (Details) - O pulo do gato! */
-/* Agora ele é cinza bem clarinho, nada de preto ou azul forte */
+/* Gabarito (Details) - O estilo clássico do seu print */
 details {
-    background-color: #fff;
-    border: 1px solid var(--cor-borda);
-    border-radius: 6px;
+    background-color: var(--secondary-bg); /* Azul noturno */
     padding: 15px;
+    border-radius: 8px;
     margin-bottom: 15px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Sombra quase invisível */
+    border: 1px solid #374b63;
 }
 
 summary {
-    color: var(--cor-primaria);
-    font-weight: 600;
+    color: #ffca28; /* Amarelo Ouro (Destaque forte no escuro) */
+    font-weight: bold;
     cursor: pointer;
 }
 
 summary:hover {
-    color: #1d4ed8;
+    color: #ffd54f;
 }
 
-/* Ajuste nos blocos de código para não ter borda dupla */
+/* Blocos de Código (Prevenir fundo branco indesejado) */
 pre[class*="language-"] {
-    border: 1px solid var(--cor-borda) !important;
-    background-color: #f8f9fa !important; /* Fundo cinza muito claro */
+    background: #0d1117 !important; /* Fundo quase preto para o código */
+    border: 1px solid var(--border-color);
     border-radius: 6px;
-    box-shadow: none !important; /* Remove sombras do Prism */
+    margin-top: 15px;
+    box-shadow: none; /* Remove sombras brancas */
 }
 
-/* Botões (Links outline) */
+/* Botões Outline (Borda fina) */
 a[role="button"].outline {
-    border: 1px solid var(--cor-borda);
-    color: #555;
-    background: transparent;
+    border-color: var(--primary);
+    color: var(--primary);
 }
 
 a[role="button"].outline:hover {
-    border-color: var(--cor-primaria);
-    color: var(--cor-primaria);
-    background: #fff;
+    background-color: var(--primary);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(30, 136, 229, 0.5); /* Brilho azul suave */
+}
+
+/* Rodapé */
+footer {
+    margin-top: 50px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+    text-align: center;
+    color: #666;
 }
