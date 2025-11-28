@@ -39,7 +39,6 @@
             <h2>⚡ Resumo Rápido</h2>
             <p>Um vetor é como uma estante com várias prateleiras numeradas. Você usa um único nome e acessa cada gaveta pelo número (índice).</p>
             
-            
             <figure>
                 <table>
                     <thead>
@@ -91,7 +90,9 @@ int main() {
     // Usamos o FOR para percorrer as posições 0, 1, 2 e 3
     for(i = 0; i < 4; i++) {
         printf("Nota %d: ", i+1); // Apenas visual (para não mostrar Nota 0)
-        scanf("%f", &notas[i]);   // Lê e guarda na posição 'i'
+        
+        // CORREÇÃO AQUI: Usamos &amp; para aparecer o & corretamente
+        scanf("%f", &amp;notas[i]);   // Lê e guarda na posição 'i'
         
         soma = soma + notas[i];   // Já aproveita para somar
     }
@@ -161,7 +162,8 @@ int main() {
     // Leitura
     for(i=0; i<5; i++){
         printf("Digite num %d: ", i);
-        scanf("%d", &vet[i]);
+        // Aqui também é bom garantir o &amp; se for copiar
+        scanf("%d", &amp;vet[i]);
     }
 
     // Lógica do Maior:
