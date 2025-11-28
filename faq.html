@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Dúvidas Comuns - ADA</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="back-link">← Voltar para o Início</a></li>
+                </ul>
+            </nav>
+            <h1>❓ FAQ - Perguntas Frequentes</h1>
+            <p>Os erros mais comuns nos plantões de monitoria e como resolvê-los.</p>
+        </header>
+
+        <article>
+            <header><strong>1. O programa fecha assim que digito o valor!</strong></header>
+            <p><strong>Causa provável:</strong> O Windows fecha o terminal ao terminar a execução.</p>
+            <p><strong>Solução:</strong> Adicione <code>getchar();</code> ou <code>system("pause");</code> antes do <code>return 0;</code>.</p>
+        </article>
+
+        <article>
+            <header><strong>2. O <code>scanf</code> não lê minha variável!</strong></header>
+            <p><strong>Erro comum:</strong> Esquecer o "E comercial" (<code>&</code>).</p>
+            <p>❌ Errado: <code>scanf("%d", idade);</code><br>
+               ✅ Certo: <code>scanf("%d", &idade);</code></p>
+        </article>
+
+        <article>
+            <header><strong>3. Meu <code>if</code> sempre entra, mesmo sendo falso!</strong></header>
+            <p><strong>Erro comum:</strong> Usar um igual só (<code>=</code>) em vez de dois (<code>==</code>).</p>
+            <p><code>if (a = 10)</code> atribui valor (sempre verdade). <br>
+               <code>if (a == 10)</code> compara valor.</p>
+        </article>
+
+        <article>
+            <header><strong>4. O cálculo com divisão dá zero (ex: 1/2 = 0)</strong></header>
+            <p><strong>Causa:</strong> Divisão de inteiros resulta em inteiro.</p>
+            <p><strong>Solução:</strong> Force um número a ser real colocando ponto. <br>
+               Ex: <code>1.0 / 2</code> resulta em <code>0.5</code>.</p>
+        </article>
+
+        <footer>
+            <small>Monitoria 2025.2 - Dúvidas coletadas nos plantões.</small>
+        </footer>
+    </main>
+</body>
+</html>
