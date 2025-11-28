@@ -2,7 +2,7 @@ ADA - Ambiente Digital de Aprendizagem
 
 > Algoritmos e Programação I - Unichristus (2025.2)
 
-Este projeto é um Ambiente Digital de Aprendizagem (ADA) desenvolvido como Produção Técnica para a monitoria da disciplina de Algoritmos I. O objetivo é fornecer um material de apoio estático, acessível e focado na autonomia do estudante.
+Este projeto é um Ambiente Digital de Aprendizagem (ADA), desenvolvido como Produção Técnica para a monitoria da disciplina de Algoritmos 1. O objetivo é fornecer um material de apoio estático, acessível e focado na autonomia do estudante.
 
 Acesse o site oficial: [Clique aqui para ver o ADA online](https://TomazGalileu.github.io/ada-algoritmo/)
 
