@@ -1,156 +1,143 @@
-/* style.css - Tema Acadêmico Moderno (Azul e Branco) */
+/* style.css - Tema Clean & Minimalist (Harmônico) */
 
-/* 1. Variáveis de Cores (Fácil de mudar depois) */
 :root {
-    --cor-fundo-pagina: #f0f4f8;   /* Cinza azulado claro */
-    --cor-cartao: #ffffff;         /* Branco puro */
-    --cor-texto: #2c3e50;          /* Cinza escuro (quase preto) */
-    --cor-primaria: #0056b3;       /* Azul Institucional */
-    --cor-destaque: #e7f1ff;       /* Azul bem clarinho para fundos */
-    --sombra-suave: 0 10px 30px rgba(0,0,0,0.08);
+    --cor-fundo: #fdfdfd;       /* Quase branco */
+    --cor-texto: #333333;       /* Cinza escuro suave */
+    --cor-primaria: #2563eb;    /* Azul médio (não agressivo) */
+    --cor-borda: #e5e7eb;       /* Cinza bem clarinho para divisórias */
+    --cor-destaque-fundo: #f3f4f6; /* Cinza gelo para caixas */
 }
 
-/* 2. Ajustes Gerais do Corpo da Página */
+/* Força o tema CLARO mesmo se o computador estiver no modo escuro */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #ffffff !important;
+        --color: #333333 !important;
+    }
+}
+
 body {
-    background-color: var(--cor-fundo-pagina) !important;
+    background-color: var(--cor-fundo) !important;
     color: var(--cor-texto) !important;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* 3. O "Cartão" Central (Mudança de Layout) */
+/* Container Principal - Removemos a sombra pesada */
 main.container {
-    background-color: var(--cor-cartao);
-    margin-top: 40px;
-    margin-bottom: 40px;
-    padding: 50px; /* Mais espaço interno */
-    border-radius: 12px; /* Cantos arredondados */
-    box-shadow: var(--sombra-suave); /* Sombra elegante */
-    max-width: 850px; /* Limita a largura para não cansar a leitura */
+    background-color: #fff;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 40px;
+    border: 1px solid var(--cor-borda); /* Borda fina em vez de sombra */
+    border-radius: 8px;
+    max-width: 800px;
 }
 
-/* 4. Cabeçalho */
+/* Cabeçalho */
 header {
-    text-align: center; /* Centraliza título e menu */
-    border-bottom: 2px solid var(--cor-destaque);
-    padding-bottom: 30px;
+    text-align: center;
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 20px;
     margin-bottom: 40px;
 }
 
 header h1 {
-    color: var(--cor-primaria);
-    font-weight: 800;
-    letter-spacing: -1px;
+    color: #111; /* Preto suave */
+    font-weight: 700;
+    font-size: 2.2rem;
 }
 
-/* Navegação e Links */
+/* Links e Navegação */
 a {
     color: var(--cor-primaria);
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.2s;
+    font-weight: 500;
 }
 
 a:hover {
-    color: #003d80;
     text-decoration: underline;
+    color: #1d4ed8;
 }
 
 .back-link {
-    display: inline-block;
-    background-color: var(--cor-destaque);
-    padding: 8px 16px;
-    border-radius: 20px;
     font-size: 0.9em;
-    margin-bottom: 15px;
-    text-decoration: none !important; /* Remove sublinhado */
+    color: #666; /* Cinza para não chamar muita atenção */
+    margin-bottom: 10px;
+    display: inline-block;
 }
 
 .back-link:hover {
-    background-color: #d0e3ff;
+    color: var(--cor-primaria);
 }
 
-/* 5. Títulos das Seções */
+/* Títulos das Seções */
 h2 {
-    color: var(--cor-texto);
-    border-left: 5px solid var(--cor-primaria); /* Barrinha azul ao lado do título */
-    padding-left: 15px;
+    font-size: 1.5rem;
+    color: #111;
     margin-top: 40px;
+    border-bottom: 2px solid var(--cor-primaria); /* Sublinhado curto */
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
-/* 6. Estilo das Tabelas */
+/* Tabelas Limpas */
 figure table {
     width: 100%;
     border-collapse: collapse;
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin: 20px 0;
+    border: 1px solid var(--cor-borda);
 }
 
 th {
-    background-color: var(--cor-primaria);
-    color: white;
-    font-weight: bold;
+    background-color: var(--cor-destaque-fundo);
+    color: #333;
+    font-weight: 600;
+    text-align: left;
 }
 
 td, th {
-    padding: 12px 15px;
-    border-bottom: 1px solid #eee;
+    padding: 12px;
+    border-bottom: 1px solid var(--cor-borda);
 }
 
-tr:hover {
-    background-color: #f9f9f9;
-}
-
-/* 7. Gabarito (Details/Summary) - Redesenhado */
+/* Gabarito (Details) - O pulo do gato! */
+/* Agora ele é cinza bem clarinho, nada de preto ou azul forte */
 details {
     background-color: #fff;
-    border: 1px solid #ddd;
-    border-left: 4px solid #ffca28; /* Amarelo para indicar exercício */
-    padding: 15px 20px;
+    border: 1px solid var(--cor-borda);
     border-radius: 6px;
-    margin-bottom: 20px;
-    transition: all 0.3s ease;
-}
-
-details[open] {
-    background-color: #fffbf0; /* Fundo levemente amarelo quando aberto */
-    border-color: #ffca28;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Sombra quase invisível */
 }
 
 summary {
-    color: #444;
-    font-weight: bold;
-    cursor: pointer;
-    list-style: none; /* Remove a setinha padrão feia */
-}
-
-summary::after {
-    content: " 👇"; /* Adiciona um ícone */
-}
-
-details[open] summary::after {
-    content: " 👆";
-}
-
-/* 8. Código e Pré-formatação */
-/* Ajuste fino para o Prism.js ficar bonito no fundo claro */
-pre[class*="language-"] {
-    border-radius: 8px;
-    border: 1px solid #eee;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
-}
-
-/* Ajuste do botão do repositório no index */
-a[role="button"].outline {
-    border: 2px solid var(--cor-primaria);
     color: var(--cor-primaria);
-    border-radius: 30px;
-    padding: 10px 25px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+summary:hover {
+    color: #1d4ed8;
+}
+
+/* Ajuste nos blocos de código para não ter borda dupla */
+pre[class*="language-"] {
+    border: 1px solid var(--cor-borda) !important;
+    background-color: #f8f9fa !important; /* Fundo cinza muito claro */
+    border-radius: 6px;
+    box-shadow: none !important; /* Remove sombras do Prism */
+}
+
+/* Botões (Links outline) */
+a[role="button"].outline {
+    border: 1px solid var(--cor-borda);
+    color: #555;
+    background: transparent;
 }
 
 a[role="button"].outline:hover {
-    background-color: var(--cor-primaria);
-    color: white;
-    text-decoration: none;
+    border-color: var(--cor-primaria);
+    color: var(--cor-primaria);
+    background: #fff;
 }
