@@ -1,29 +1,23 @@
-/* style.css - Tema Escuro Original (Dark Mode) */
-
-/* Definindo as cores escuras globais */
 :root {
-    --background-color: #11191f; /* Fundo bem escuro (Pico Default) */
-    --text-color: #bbc6ce;       /* Texto cinza claro (confortável) */
-    --h-color: #edf0f3;          /* Títulos em branco */
-    --primary: #1e88e5;          /* Azul para links */
-    --secondary-bg: #1f2d3d;     /* Fundo dos blocos de destaque */
-    --border-color: #2b3b4d;     /* Bordas sutis */
+    --background-color: #11191f; 
+    --text-color: #bbc6ce;       
+    --h-color: #edf0f3;          
+    --primary: #1e88e5;          
+    --secondary-bg: #1f2d3d;     
+    --border-color: #2b3b4d;    
 }
 
-/* Força o corpo da página a ser escuro */
 body {
     background-color: var(--background-color) !important;
     color: var(--text-color) !important;
 }
 
-/* Container Principal */
 main.container {
     padding-top: 20px;
     padding-bottom: 40px;
     max-width: 800px;
 }
 
-/* Cabeçalho */
 header {
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 30px;
@@ -35,7 +29,6 @@ header h1 {
     font-weight: 700;
 }
 
-/* Navegação e Links */
 a {
     color: var(--primary);
     text-decoration: none;
@@ -44,7 +37,7 @@ a {
 
 a:hover {
     text-decoration: underline;
-    color: #64b5f6; /* Azul mais claro ao passar o mouse */
+    color: #64b5f6; 
 }
 
 .back-link {
@@ -53,15 +46,13 @@ a:hover {
     display: inline-block;
 }
 
-/* Títulos das Seções */
 h2, h3, h4 {
     color: var(--h-color);
     margin-top: 35px;
-    border-left: 4px solid var(--primary); /* Detalhe azul na esquerda */
+    border-left: 4px solid var(--primary); 
     padding-left: 15px;
 }
 
-/* Tabelas (Ajustadas para o escuro) */
 figure table {
     border-collapse: collapse;
     width: 100%;
@@ -79,9 +70,8 @@ td {
     border-bottom: 1px solid var(--border-color);
 }
 
-/* Gabarito (Details) - O estilo clássico do seu print */
 details {
-    background-color: var(--secondary-bg); /* Azul noturno */
+    background-color: var(--secondary-bg);
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 15px;
@@ -89,7 +79,7 @@ details {
 }
 
 summary {
-    color: #ffca28; /* Amarelo Ouro (Destaque forte no escuro) */
+    color: #ffca28;
     font-weight: bold;
     cursor: pointer;
 }
@@ -98,16 +88,15 @@ summary:hover {
     color: #ffd54f;
 }
 
-/* Blocos de Código (Prevenir fundo branco indesejado) */
 pre[class*="language-"] {
-    background: #0d1117 !important; /* Fundo quase preto para o código */
+    background: #0d1117 !important; 
     border: 1px solid var(--border-color);
     border-radius: 6px;
     margin-top: 15px;
-    box-shadow: none; /* Remove sombras brancas */
+    box-shadow: none; 
 }
 
-/* Botões Outline (Borda fina) */
+
 a[role="button"].outline {
     border-color: var(--primary);
     color: var(--primary);
@@ -116,10 +105,9 @@ a[role="button"].outline {
 a[role="button"].outline:hover {
     background-color: var(--primary);
     color: #fff;
-    box-shadow: 0 0 10px rgba(30, 136, 229, 0.5); /* Brilho azul suave */
+    box-shadow: 0 0 10px rgba(30, 136, 229, 0.5); 
 }
 
-/* Rodapé */
 footer {
     margin-top: 50px;
     border-top: 1px solid var(--border-color);
